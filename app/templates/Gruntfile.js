@@ -52,9 +52,9 @@ module.exports = function(grunt) {
           cwd: 'src/',
           src: [
             '**/*',
-            '!<%= jade.src.files[0].src %>',
-            '!<%= stylus.src.files[0].src %>',
-            '!<%= coffee.src.files[0].src %>'
+            '**/*.jade',
+            '**/*.stylus',
+            '**/*.coffee'
           ],
           dest: 'public/'
         }]
@@ -62,23 +62,23 @@ module.exports = function(grunt) {
     },
     watch: {
       jade: {
-        files: '<%= jade.src.files[0].cwd + jade.src.files[0].src %>',
+        files: '**/*.jade',
         tasks: 'jade'
       },
       stylus: {
-        files: '<%= stylus.src.files[0].cwd + stylus.src.files[0].src %>',
+        files: '**/*.styl',
         tasks: 'stylus'
       },
       coffee: {
-        files: '<%= coffee.src.files[0].cwd + coffee.src.files[0].src %>',
+        files: '**/*.coffee',
         tasks: 'coffee'
       },
       copy: {
         files: [
-          '<%= copy.src.files[0].cwd + copy.src.files[0].src[0] %>',
-          '!<%= jade.src.files[0].cwd + jade.src.files[0].src %>',
-          '!<%= stylus.src.files[0].cwd + stylus.src.files[0].src %>',
-          '!<%= coffee.src.files[0].cwd + coffee.src.files[0].src %>'
+          '**/*.*',
+          '**/*.jade',
+          '**/*.coffee',
+          '**/*.styl'
         ],
         tasks: 'copy:src'
       },
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
     },
     open: {
       server: {
-        path: 'http://localhost:<%= connect.server.options.port %>'
+        path: 'http://localhost:80'
       }
     },
     concurrent: {
