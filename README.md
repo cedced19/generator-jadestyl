@@ -20,13 +20,13 @@ $ yo jadestyl
 
 ##Grunt
 
-Open the server
+Open the server:
 
 ```bash
 $ grunt server
 ```
 
-Compile the project
+Compile the project:
 
 ```bash
 $ grunt
