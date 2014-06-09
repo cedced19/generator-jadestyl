@@ -2,6 +2,8 @@
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
 
+![](demo.png)
+
 ##To install
 
 To install generator-JadeStyl from npm, run:
@@ -14,4 +16,18 @@ Finally, initiate the generator:
 
 ```bash
 $ yo jadestyl
+```
+
+##Grunt
+
+Open the server
+
+```bash
+$ grunt server
+```
+
+Compile the project
+
+```bash
+$ grunt
 ```
