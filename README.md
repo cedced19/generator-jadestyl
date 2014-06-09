@@ -2,7 +2,7 @@
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
 
-![](demo.png)
+![](https://raw.githubusercontent.com/cedced19/generator-jadestyl/master/demo.png)
 
 ##To install
 
