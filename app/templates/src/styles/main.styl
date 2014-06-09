@@ -1,0 +1,61 @@
+@import 'nib' // CSS3 extensions for Stylus: http://visionmedia.github.io/nib/
+
+// variables!
+
+body_color = #fff
+body_selection = #2ecc71
+body_background = #16a085
+
+h3_color = #ecf0f1
+
+// base
+
+body
+  font-family: helvetica, arial, sans-serif
+  font-size: 18px
+  color: body_color
+  background-color: body_background
+
+::selection
+   background-color: body_selection
+   color: body_color
+
+h1
+  font-size: 72px
+  line-height: 82px
+  letter-spacing: -2px
+  margin-bottom: 16px
+
+h2
+  font-size: 42px
+  letter-spacing: -1px
+  margin-bottom: 8px
+
+h3
+  font-size: 24px
+  font-weight: normal
+  margin-bottom: 24px
+  color: h3_color
+
+hr
+  visibility: hidden
+  height: 20px
+
+ul
+  list-style: none
+
+li
+  margin-bottom: 12px
+
+p
+  margin: 0 100px 12px
+  line-height: 22px
+
+a
+  color: a_color
+  text-decoration: none
+
+main
+  width: 50%
+  margin: auto
+  padding-left: 75px
