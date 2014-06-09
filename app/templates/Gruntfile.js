@@ -51,10 +51,10 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/',
           src: [
-            '**/*',
-            '**/*.jade',
-            '**/*.styl',
-            '**/*.coffee'
+            'src/scripts/*.js',
+            'src/*.jade',
+            'src/styles/*.styl',
+            'src/scripts/*.coffee'
           ],
           dest: 'public/'
         }]
@@ -62,11 +62,11 @@ module.exports = function(grunt) {
     },
     watch: {
       jade: {
-        files: '**/*.jade',
+        files: 'src/*.jade',
         tasks: 'jade'
       },
       stylus: {
-        files: '**/*.styl',
+        files: 'src/styles/*.styl',
         tasks: 'stylus'
       },
       coffee: {
@@ -75,10 +75,10 @@ module.exports = function(grunt) {
       },
       copy: {
         files: [
-          '**/*.*',
-          '**/*.jade',
-          '**/*.coffee',
-          '**/*.styl'
+          'src/scripts/*.js',
+          'src/*.jade',
+          'src/scripts/*.coffee',
+          'src/styles/*.styl'
         ],
         tasks: 'copy:src'
       },
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 8000,
+          port: 80,
           hostname: '*', // Remove this line if you only want the server available locally
           base: 'public',
           keepalive: true,
