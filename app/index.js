@@ -49,7 +49,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     this.copy('_bower.json', 'bower.json');
     this.copy('editorconfig', '.editorconfig');
     this.copy('gitignore', '.gitignore');
-    this.copy('bowerrc', '.bowerrcc');
+    this.copy('bowerrc', '.bowerrc');
     this.copy('jshintrc', '.jshintrc');
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('README.md', 'README.md');
