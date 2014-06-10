@@ -1,5 +1,5 @@
 #Jade and Stylus  Generator  
-generator-jadestyl [![NPM version][npm-image]][npm-url]
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
 
