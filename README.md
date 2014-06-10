@@ -1,4 +1,5 @@
-#Jade and Stylus  Generator
+#Jade and Stylus  Generator  
+generator-jadestyl [![NPM version][npm-image]][npm-url]
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
 
