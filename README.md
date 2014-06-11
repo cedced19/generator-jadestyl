@@ -7,7 +7,7 @@ Yeoman generator for a jade and stylus (and coffeescript) project.
 
 ##To install
 
-To install generator-JadeStyl from npm, run:
+To install generator-jadestyl from npm, run:
 
 ```bash
 $ npm install -g generator-jadestyl
