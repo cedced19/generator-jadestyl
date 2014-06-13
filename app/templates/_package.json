@@ -1,5 +1,5 @@
 {
-  "name": "<%= title %>-jadestyl",
+  "name": "<%= _.slugify(title) %>-jadestyl",
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
