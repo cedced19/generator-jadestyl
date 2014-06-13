@@ -26,13 +26,24 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     var prompts = [{
       name: 'title',
       message: 'What is the title of your application?',
-      default: 'Hello-World'
+      default: 'Hello World'
     }];
 
     this.prompt(prompts, function (props) {
       this.title = props.title;
 
       done();
+
+  var extractGeneratorName = function (_, appname) {
+    var slugged = _.slugify(title);
+    var match = slugged.match(/^$/);
+
+    if (match && match.length === 2) {
+      return match[1].toLowerCase();
+  }
+
+  return slugged;
+  };
     }.bind(this));
   },
 
