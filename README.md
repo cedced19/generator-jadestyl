@@ -20,11 +20,10 @@ Finally, initiate the generator:
 $ yo jadestyl
 ```
 
-##Repository
+##Repository (option)
 
 * Animate.css
 * jQuery  
-(option)
 
 ##Grunt
 
