@@ -2,7 +2,7 @@
   "name": "<%= title %>-jadestyl",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "1.11.0"<% if (animateCss) { %>,
-    "animate.css": "3.1.1"<% } %>
+    <% if (jQuery) { %>"jquery": "1.11.0"<% if (animateCss) { %>,<% } %><% } %>
+    <% if (animateCss) { %>"animate.css": "3.1.1"<% } %>
   }
 }

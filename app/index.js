@@ -29,6 +29,11 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       default: 'Hello World'
     },{
       type: 'confirm',
+      name: 'jQuery',
+      message: 'Would you like jQuery ?',
+      default: true
+    },{
+      type: 'confirm',
       name: 'animateCss',
       message: 'Would you like Animate.css ?',
       default: true
@@ -37,6 +42,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.title = props.title;
       this.animateCss = props.animateCss;
+      this.jQuery = props.jQuery;
 
       done();
 
