@@ -23,7 +23,7 @@ $ yo jadestyl
 ##Repository
 
 * Animate.css
-* jQuery
+* jQuery  
 (option)
 
 ##Grunt
