@@ -1,4 +1,5 @@
-// Generated on 2014-06-21 using generator-jadestyl v0.1.0
+// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> v<%= pkg.version %>
+
 
 module.exports = function(grunt) {
 
