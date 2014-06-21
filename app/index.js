@@ -27,10 +27,16 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       name: 'title',
       message: 'What is the title of your application?',
       default: 'Hello World'
+    },{
+      type: 'confirm',
+      name: 'animateCss',
+      message: 'Would you like Animate.css ?',
+      default: true
     }];
 
     this.prompt(prompts, function (props) {
       this.title = props.title;
+      this.animateCss = props.animateCss;
 
       done();
 

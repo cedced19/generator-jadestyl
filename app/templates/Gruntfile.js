@@ -1,4 +1,4 @@
-// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> v<%= pkg.version %>
+// Generated on 2014-06-21 using generator-jadestyl v0.1.0
 
 module.exports = function(grunt) {
 
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/',
           src: [
-            'bower_components/jquery/dist/jquery.min.js',
+            'bower_components/**/*',
             'scripts/*.js',
             'src/*.jade',
             'src/styles/*.styl',
