@@ -20,6 +20,12 @@ Finally, initiate the generator:
 $ yo jadestyl
 ```
 
+##Repository
+
+* Animate.css
+* jQuery
+(option)
+
 ##Grunt
 
 Open the server:
