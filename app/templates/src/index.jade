@@ -6,11 +6,11 @@ html
     title <%= title %>
 
     // build:css styles/styles.css
-    link(rel='stylesheet', type='text/css', href='styles/main.css')
     <% if (animateCss) { %>link(rel='stylesheet', type='text/css', href='bower_components/animate.css/animate.css')<% } %>
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
     // endbuild
 
-  body
+  body<% if (animateCss) { %>.animated.rollIn<% } %>
 
     main
       h1'Allo, 'Allo!
@@ -23,6 +23,6 @@ html
         li CoffeeScript
 
     // build:js scripts/scripts.js
-    script(src='scripts/main.js')
     <% if (jQuery) { %>script(src='bower_components/jquery/dist/jquery.min.js')<% } %>
+    script(src='scripts/main.js')
     // endbuild
