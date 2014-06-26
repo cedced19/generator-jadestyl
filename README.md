@@ -1,4 +1,4 @@
-#Jade and Stylus  Generator  
+#Jade and Stylus  Generator
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
@@ -23,7 +23,8 @@ $ yo jadestyl
 ##Repository (option)
 
 * Animate.css
-* jQuery  
+* jQuery
+* ImgProgress
 
 ##Grunt
 

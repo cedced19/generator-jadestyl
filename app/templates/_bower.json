@@ -2,7 +2,8 @@
   "name": "<%= title %>-jadestyl",
   "version": "0.0.0",
   "dependencies": {
-    <% if (jQuery) { %>"jquery": "1.11.0"<% if (animateCss) { %>,<% } %><% } %>
-    <% if (animateCss) { %>"animate.css": "3.1.1"<% } %>
+    <% if (jQuery) { %>"jquery": "1.11.0"<% if (animateCss || imgProgress) { %>,<% } %><% } %>
+    <% if (animateCss) { %>"animate.css": "3.1.1"<% if (jQuery || imgProgress) { %>,<% } %><% } %>
+    <% if (imgProgress) { %>"imgprogress": "https://github.com/cedced19/imgprogress.git"<% } %>
   }
 }

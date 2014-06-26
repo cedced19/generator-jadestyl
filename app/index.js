@@ -34,6 +34,11 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       default: true
     },{
       type: 'confirm',
+      name: 'imgProgress',
+      message: 'Would you like add a progressbar according with the number of image in the page ?',
+      default: false
+    },{
+      type: 'confirm',
       name: 'animateCss',
       message: 'Would you like Animate.css ?',
       default: true
@@ -43,6 +48,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.title = props.title;
       this.animateCss = props.animateCss;
       this.jQuery = props.jQuery;
+      this.imgProgress = props.imgProgress;
 
       done();
 
