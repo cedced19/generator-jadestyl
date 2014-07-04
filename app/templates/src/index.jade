@@ -24,7 +24,8 @@ html
         li CoffeeScript
 
     // build:js scripts/scripts.js
-    <% if (jQuery || imgProgress) { %>script(src='bower_components/jquery/dist/jquery.min.js')<% } %>
-    <% if (imgProgress) { %>script(src='bower_components/imgprogress/imgprogress.js')')<% } %>
+    <% if (jQuery || imgProgress || velocity) { %>script(src='bower_components/jquery/dist/jquery.min.js')<% } %>
+    <% if (imgProgress) { %>script(src='bower_components/imgprogress/imgprogress.js')<% } %>
+    <% if (velocity) { %>script(src='bower_components/velocity/jquery.velocity.min.js')<% } %>
     script(src='scripts/main.js')
     // endbuild
