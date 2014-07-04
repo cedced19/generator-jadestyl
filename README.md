@@ -25,6 +25,7 @@ $ yo jadestyl
 * Animate.css
 * jQuery
 * ImgProgress
+* VelocityJS
 
 ##Grunt
 
