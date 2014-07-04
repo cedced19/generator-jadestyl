@@ -79,20 +79,20 @@ var JadestylGenerator = yeoman.generators.Base.extend({
         };
 
         if (this.jQuery) {
-         bower.dependencies.jquery = "1.11.0"
+         bower.dependencies.jquery = '1.11.0'
         }
 
         if (this.animateCss) {
           var ani = 'animate.css'
-          bower.dependencies[ani] = "~3.1.1";
+          bower.dependencies[ani] = '~3.1.1';
         }
 
          if (this.imgProgress) {
-          bower.dependencies.imgprogress = "https://github.com/cedced19/imgprogress.git";
+          bower.dependencies.imgprogress = 'https://github.com/cedced19/imgprogress.git';
         }
 
         if (this.velocity) {
-          bower.dependencies.velocity = "https://github.com/julianshapiro/velocity.git";
+          bower.dependencies.velocity = 'https://github.com/julianshapiro/velocity.git';
         }
 
         this.write('bower.json', JSON.stringify(bower, null, 2));
