@@ -42,6 +42,11 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       name: 'animateCss',
       message: 'Would you like Animate.css ?',
       default: true
+    },{
+      type: 'confirm',
+      name: 'velocity',
+      message: 'Would you like Velocity JS ?',
+      default: false
     }];
 
     this.prompt(prompts, function (props) {
@@ -49,44 +54,72 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.animateCss = props.animateCss;
       this.jQuery = props.jQuery;
       this.imgProgress = props.imgProgress;
+      this.velocity = props.velocity;
 
       done();
 
-  var extractGeneratorName = function (_, appname) {
-    var slugged = _.slugify(title);
-    var match = slugged.match(/^$/);
+      var extractGeneratorName = function (_, appname) {
+        var slugged = _.slugify(title);
+        var match = slugged.match(/^$/);
 
-    if (match && match.length === 2) {
-      return match[1].toLowerCase();
-  }
+        if (match && match.length === 2) {
+          return match[1].toLowerCase();
+      }
 
-  return slugged;
-  };
-    }.bind(this));
-  },
+      return slugged;
+      };
+        }.bind(this));
+      },
+
+     bower: function () {
+        var bower = {
+          name: this._.slugify(this.title + '-jadestyl'),
+          private: true,
+          dependencies: {}
+        };
+
+        if (this.jQuery) {
+         bower.dependencies.jquery = "1.11.0"
+        }
+
+        if (this.animateCss) {
+          var ani = 'animate.css'
+          bower.dependencies[ani] = "~3.1.1";
+        }
+
+         if (this.imgProgress) {
+          bower.dependencies.imgprogress = "https://github.com/cedced19/imgprogress.git";
+        }
+
+        if (this.velocity) {
+          bower.dependencies.velocity = "https://github.com/julianshapiro/velocity.git";
+        }
+
+        this.write('bower.json', JSON.stringify(bower, null, 2));
+      },
 
 
-  app: function () {
-    this.mkdir('src');
-    this.mkdir('src/scripts');
-    this.mkdir('src/styles');
+    app: function () {
+      this.mkdir('src');
+      this.mkdir('src/scripts');
+      this.mkdir('src/styles');
 
-    this.template('src/index.jade', 'src/index.jade');
-    this.template('src/scripts/main.js', 'src/scripts/main.js');
-    this.template('src/styles/main.styl', 'src/styles/main.styl');
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('gitignore', '.gitignore');
-    this.copy('bowerrc', '.bowerrc');
-    this.copy('jshintrc', '.jshintrc');
-    this.template('Gruntfile.js', 'Gruntfile.js');
-    this.template('README.md', 'README.md');
-  },
+      this.template('src/index.jade', 'src/index.jade');
+      this.template('src/scripts/main.js', 'src/scripts/main.js');
+      this.template('src/styles/main.styl', 'src/styles/main.styl');
+      this.copy('_package.json', 'package.json');
+      this.copy('editorconfig', '.editorconfig');
+      this.copy('gitignore', '.gitignore');
+      this.copy('bowerrc', '.bowerrc');
+      this.copy('jshintrc', '.jshintrc');
+      this.template('Gruntfile.js', 'Gruntfile.js');
+      this.template('README.md', 'README.md');
+    },
 
 
-  projectfiles: function () {
-  }
-});
+    projectfiles: function () {
+    }
+  });
+
 
 module.exports = JadestylGenerator;
