@@ -1,20 +1,39 @@
 #Jade and Stylus  Generator
+
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Dependencies](https://david-dm.org/cedced19/generator-phpstyl.png)](https://david-dm.org/cedced19/generator-phpstyl)
+[![devDependencies](https://david-dm.org/cedced19/generator-phpstyl/dev-status.png)](https://david-dm.org/cedced19/generator-phpstyl#info=devDependencies)
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
 Include a web server.
 
-![](https://raw.githubusercontent.com/cedced19/generator-jadestyl/master/demo.png)
+![demo](https://raw.githubusercontent.com/cedced19/generator-jadestyl/master/demo.png)
 
-##To install
+## Required
 
-To install generator-jadestyl from npm, run:
+Of course Node.js, NPM and Git.
+
+Yeoman:
+
+```bash
+$ npm install -g yo
+```
+
+Bower:
+
+```bash
+$ npm install -g bower
+```
+
+Generator-Jadestyl:
 
 ```bash
 $ npm install -g generator-jadestyl
 ```
 
-Finally, initiate the generator:
+## Getting Started
+
+Initiate the generator:
 
 ```bash
 $ yo jadestyl
