@@ -161,7 +161,19 @@ module.exports = function(grunt) {
         },
         src: '**/*'
       }
+    }<% if (htmlmin) { %>,
+    htmlmin: {
+        dist: {
+          options: {
+            removeComments: true,
+            collapseWhitespace: true
+          },
+          files: {
+            'public/index.html': 'public/index.html'
+          }
+      }
     }
+  <% } %>
   };
 
   grunt.initConfig(config);
@@ -169,7 +181,7 @@ module.exports = function(grunt) {
   // Load all Grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['compile', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin']);
+  grunt.registerTask('default', ['compile', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin'<% if (htmlmin) { %>, 'htmlmin'<% } %>]);
   grunt.registerTask('compile', ['clean', 'concurrent:compile']);
   grunt.registerTask('server', ['compile', 'concurrent:server']);
   grunt.registerTask('deploy', ['default', 'gh-pages:public']);

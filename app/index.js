@@ -47,6 +47,11 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       name: 'velocity',
       message: 'Would you like Velocity JS ?',
       default: false
+    },{
+      type: 'confirm',
+      name: 'htmlmin',
+      message: 'Would you like minify your html ?',
+      default: true
     }];
 
     this.prompt(prompts, function (props) {
@@ -55,6 +60,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.jQuery = props.jQuery;
       this.imgProgress = props.imgProgress;
       this.velocity = props.velocity;
+      this.htmlmin = props.htmlmin;
 
       done();
 
