@@ -3,6 +3,8 @@
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Dependencies](https://david-dm.org/cedced19/generator-phpstyl.png)](https://david-dm.org/cedced19/generator-phpstyl)
 [![devDependencies](https://david-dm.org/cedced19/generator-phpstyl/dev-status.png)](https://david-dm.org/cedced19/generator-phpstyl#info=devDependencies)
+[![Build Status](https://travis-ci.org/cedced19/generator-jadestyl.svg?branch=master)](https://travis-ci.org/cedced19/generator-jadestyl)
+
 
 Yeoman generator for a jade and stylus (and coffeescript) project.
 Include a web server.
