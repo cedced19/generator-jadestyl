@@ -26,7 +26,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     var prompts = [{
       name: 'title',
       message: 'What is the title of your application?',
-      default: this.appname
+      default: 'Hello World'
     },{
       type: 'confirm',
       name: 'jQuery',
