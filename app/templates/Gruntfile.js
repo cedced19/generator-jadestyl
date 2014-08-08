@@ -131,13 +131,13 @@ module.exports = function(grunt) {
       },
       server: {
         tasks: [
-          'connect',
           'open',
           'watch:jade',
           'watch:stylus',
           'watch:coffee',
           'watch:copy',
-          'watch:public'
+          'watch:public',
+          'connect'
         ],
         options: {
           logConcurrentOutput: true
