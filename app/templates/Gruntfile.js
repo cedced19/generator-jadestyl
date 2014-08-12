@@ -4,9 +4,6 @@
 module.exports = function(grunt) {
 
   var config = {
-    clean: {
-      public: 'public/**/*'
-    },
     jade: {
       src: {
         files: [{
@@ -52,11 +49,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/',
           src: [
-            'bower_components/**/*',
-            'scripts/*.js',
-            'src/*.jade',
-            'src/styles/*.styl',
-            'src/scripts/*.coffee'
+            'scripts/*.js'
           ],
           dest: 'public/'
         }]
