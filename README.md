@@ -4,6 +4,7 @@
 [![Dependencies](https://david-dm.org/cedced19/generator-phpstyl.png)](https://david-dm.org/cedced19/generator-phpstyl)
 [![devDependencies](https://david-dm.org/cedced19/generator-phpstyl/dev-status.png)](https://david-dm.org/cedced19/generator-phpstyl#info=devDependencies)
 [![Build Status](https://travis-ci.org/cedced19/generator-jadestyl.svg?branch=master)](https://travis-ci.org/cedced19/generator-jadestyl)
+[![NPM version](https://badge.fury.io/js/generator-jadestyl.svg)](http://badge.fury.io/js/generator-jadestyl)
 
 
 Yeoman generator for a jade and stylus (and coffeescript) project.

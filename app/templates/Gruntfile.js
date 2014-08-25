@@ -154,6 +154,20 @@ module.exports = function(grunt) {
         },
         src: '**/*'
       }
+    }
+  uncss: {
+    dist: {
+      files: {
+        'public/styles/styles.css': ['public/index.html']
+      }
+    }
+  },
+  cssmin: {
+      after: {
+        files: {
+          'public/styles/styles.css': ['public/styles/styles.css']
+        }
+      }
     }<% if (htmlmin) { %>,
     htmlmin: {
         dist: {
@@ -174,7 +188,7 @@ module.exports = function(grunt) {
   // Load all Grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['compile', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin'<% if (htmlmin) { %>, 'htmlmin'<% } %>]);
+  grunt.registerTask('default', ['compile', 'useminPrepare', 'concat', 'uglify', 'usemin'<% if (htmlmin) { %>, 'htmlmin'<% } %>, 'uncss', 'cssmin:after',]);
   grunt.registerTask('compile', ['clean', 'concurrent:compile']);
   grunt.registerTask('server', ['compile', 'concurrent:server']);
   grunt.registerTask('deploy', ['default', 'gh-pages:public']);
