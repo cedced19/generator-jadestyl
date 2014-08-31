@@ -182,7 +182,7 @@ module.exports = function(grunt) {
   // Load all Grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['concurrent:compile', 'useminPrepare', 'concat', 'uglify', 'uncss', 'cssmin:after', 'usemin', 'htmlmin']);
+  grunt.registerTask('default', ['concurrent:compile', 'useminPrepare', 'concat', 'uglify', 'uncss', 'cssmin:after', 'usemin'<% if (htmlmin) { %>, 'htmlmin'<% } %>]);
   grunt.registerTask('server', ['concurrent:compile', 'concurrent:server']);
 
 };
