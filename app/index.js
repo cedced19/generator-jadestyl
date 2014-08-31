@@ -109,6 +109,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.mkdir('src');
       this.mkdir('src/scripts');
       this.mkdir('src/styles');
+
       this.template('src/index.jade', 'src/index.jade');
       this.template('src/scripts/main.js', 'src/scripts/main.js');
       this.template('src/styles/main.styl', 'src/styles/main.styl');
