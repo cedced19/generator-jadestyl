@@ -15,12 +15,13 @@ html
 
     main
       h1'Allo, 'Allo!
-      img(src='http://yeoman.io/assets/img/yeoman-02.901d.png')
-      h3 You now have :
+      h3 You have now :
       ul
         li Jade
         li Stylus
-        li jQuery
+        <% if (jQuery || imgProgress || velocity) { %>li jQuery <% } %>
+        <% if (imgProgress) { %>li ImgProgress <% } %>
+        <% if (velocity) { %>li VelocityJS <% } %>
         li CoffeeScript
 
     // build:js scripts/scripts.js
