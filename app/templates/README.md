@@ -1,8 +1,6 @@
 # <%= title %>
 > A project with generator-jadestyl
 
-## View slides locally
-
 First, ensure you have the following installed:
 
 1. [Node.js](http://nodejs.org)
