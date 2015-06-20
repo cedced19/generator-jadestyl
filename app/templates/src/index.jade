@@ -5,16 +5,13 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title <%= title %>
 
-    // build:css styles/styles.css
-    <% if (animateCss) { %>link(rel='stylesheet', type='text/css', href='bower_components/animate.css/animate.css')<% } %>
-    <% if (imgProgress) { %>link(rel='stylesheet', type='text/css', href='bower_components/imgprogress/imgprogress.css')<% } %>
-    link(rel='stylesheet', type='text/css', href='styles/main.css')
-    // endbuild
+    link(rel='stylesheet', type='text/css', href='build/build.css')
 
   body<% if (animateCss) { %>.animated.rollIn<% } %>
 
     main
-      h1'Allo, 'Allo!
+      h1 'Allo, 'Allo!
+      img(src='https://nodejs.org/images/logos/nodejs-dark.png')
       h3 You have now :
       ul
         li Jade
@@ -22,11 +19,5 @@ html
         <% if (jQuery || imgProgress || velocity) { %>li jQuery <% } %>
         <% if (imgProgress) { %>li ImgProgress <% } %>
         <% if (velocity) { %>li VelocityJS <% } %>
-        li CoffeeScript
 
-    // build:js scripts/scripts.js
-    <% if (jQuery || imgProgress || velocity) { %>script(src='bower_components/jquery/dist/jquery.min.js')<% } %>
-    <% if (imgProgress) { %>script(src='bower_components/imgprogress/imgprogress.js')<% } %>
-    <% if (velocity) { %>script(src='bower_components/velocity/jquery.velocity.min.js')<% } %>
-    script(src='scripts/main.js')
-    // endbuild
+    script(src='build/build.js')

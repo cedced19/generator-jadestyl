@@ -1,6 +1,6 @@
 {
   "name": "generator-jadestyl",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Yeoman generator for a jade and stylus project",
   "license": "MIT",
   "main": "app/index.js",
@@ -24,14 +24,13 @@
     "jade",
     "stylus",
     "minify",
-    "coffee",
     "css",
     "generator",
     "grunt"
   ],
   "dependencies": {
     "yeoman-generator": "~0.18.4",
-    "chalk": "~1.0.0",
+    "chalk": "~0.5.1",
     "yosay": "1.0.0"
   },
   "devDependencies": {

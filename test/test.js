@@ -26,7 +26,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     var prompts = [{
       name: 'title',
       message: 'What is the title of your application?',
-      default: this.appname
+      default: 'Hello World'
     },{
       type: 'confirm',
       name: 'jQuery',
@@ -47,11 +47,6 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       name: 'velocity',
       message: 'Would you like Velocity JS ?',
       default: false
-    },{
-      type: 'confirm',
-      name: 'htmlmin',
-      message: 'Would you like minify your html ?',
-      default: true
     }];
 
     this.prompt(prompts, function (props) {
@@ -64,21 +59,20 @@ var JadestylGenerator = yeoman.generators.Base.extend({
 
       done();
 
-  var extractGeneratorName = function (_, appname) {
-    var slugged = _.slugify(title);
-    var match = slugged.match(/^$/);
+      var extractGeneratorName = function (_, appname) {
+        var slugged = _.slugify(title);
+        var match = slugged.match(/^$/);
 
-    if (match && match.length === 2) {
-      return match[1].toLowerCase();
-  }
+        if (match && match.length === 2) {
+          return match[1].toLowerCase();
+      }
 
-  return slugged;
-  };
-    }.bind(this));
-  },
+      return slugged;
+      };
+        }.bind(this));
+      },
 
-
-    bower: function () {
+     bower: function () {
         var bower = {
           name: this._.slugify(this.title + '-jadestyl'),
           private: true,
@@ -105,7 +99,8 @@ var JadestylGenerator = yeoman.generators.Base.extend({
         this.write('bower.json', JSON.stringify(bower, null, 2));
       },
 
-  app: function () {
+
+    app: function () {
       this.mkdir('src');
       this.mkdir('src/scripts');
       this.mkdir('src/styles');
@@ -114,17 +109,16 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.template('src/scripts/main.js', 'src/scripts/main.js');
       this.template('src/styles/main.styl', 'src/styles/main.styl');
       this.copy('_package.json', 'package.json');
-      this.copy('editorconfig', '.editorconfig');
       this.copy('gitignore', '.gitignore');
       this.copy('bowerrc', '.bowerrc');
-      this.copy('jshintrc', '.jshintrc');
-      this.template('Gruntfile.js', 'Gruntfile.js');
+      this.template('gulpfile.js', 'gulpfile.js');
       this.template('README.md', 'README.md');
-  },
+    },
 
 
-  projectfiles: function () {
-  }
-});
+    projectfiles: function () {
+    }
+  });
+
 
 module.exports = JadestylGenerator;

@@ -47,11 +47,6 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       name: 'velocity',
       message: 'Would you like Velocity JS ?',
       default: false
-    },{
-      type: 'confirm',
-      name: 'htmlmin',
-      message: 'Would you like minify your html ?',
-      default: true
     }];
 
     this.prompt(prompts, function (props) {
@@ -114,16 +109,10 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.template('src/scripts/main.js', 'src/scripts/main.js');
       this.template('src/styles/main.styl', 'src/styles/main.styl');
       this.copy('_package.json', 'package.json');
-      this.copy('editorconfig', '.editorconfig');
       this.copy('gitignore', '.gitignore');
       this.copy('bowerrc', '.bowerrc');
-      this.copy('jshintrc', '.jshintrc');
-      this.template('Gruntfile.js', 'Gruntfile.js');
+      this.template('gulpfile.js', 'gulpfile.js');
       this.template('README.md', 'README.md');
-    },
-
-
-    projectfiles: function () {
     }
   });
 

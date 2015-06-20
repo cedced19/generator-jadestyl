@@ -1,4 +1,4 @@
 node_modules
-src/bower_components
-public
+bower_components
+dist
 .tmp

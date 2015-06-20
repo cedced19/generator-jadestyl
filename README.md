@@ -1,6 +1,5 @@
-#Jade and Stylus  Generator
+# Jade and Stylus  Generator
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Dependencies](https://david-dm.org/cedced19/generator-jadestyl.png)](https://david-dm.org/cedced19/generator-jadestyl)
 [![devDependencies](https://david-dm.org/cedced19/generator-jadestyl/dev-status.png)](https://david-dm.org/cedced19/generator-jadestyl#info=devDependencies)
 [![Build Status](https://travis-ci.org/cedced19/generator-jadestyl.svg?branch=master)](https://travis-ci.org/cedced19/generator-jadestyl)
@@ -42,23 +41,29 @@ Initiate the generator:
 $ yo jadestyl
 ```
 
-##Repository (option)
+## Repository (option)
 
 * Animate.css
 * jQuery
 * ImgProgress
 * VelocityJS
 
-##Grunt
+## Gulp
 
 Open the server:
 
 ```bash
-$ grunt server
+$ gulp serve
 ```
 
 Compile the project:
 
 ```bash
-$ grunt
+$ gulp
+```
+
+Deploy to gh-pages:
+
+```bash
+$ gulp deploy
 ```
