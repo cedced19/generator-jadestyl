@@ -1,8 +1,13 @@
 {
   "name": "generator-jadestyl",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Yeoman generator for a jade and stylus project",
-  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://cedced19.github.io/license/"
+    }
+  ],
   "main": "app/index.js",
   "repository": "cedced19/generator-jadestyl",
   "author": {
@@ -30,7 +35,7 @@
   ],
   "dependencies": {
     "yeoman-generator": "~0.18.4",
-    "chalk": "~0.5.1",
+    "chalk": "~1.0.0",
     "yosay": "1.0.0"
   },
   "devDependencies": {
