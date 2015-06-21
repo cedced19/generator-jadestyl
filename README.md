@@ -6,7 +6,7 @@
 [![NPM version](https://badge.fury.io/js/generator-jadestyl.svg)](http://badge.fury.io/js/generator-jadestyl)
 
 
-Yeoman generator for a jade and stylus (and coffeescript) project.
+Yeoman generator for a jade and stylus project.
 Include a web server.
 
 ![demo](https://raw.githubusercontent.com/cedced19/generator-jadestyl/master/demo.png)
@@ -40,13 +40,6 @@ Initiate the generator:
 ```bash
 $ yo jadestyl
 ```
-
-## Repository (option)
-
-* Animate.css
-* jQuery
-* ImgProgress
-* VelocityJS
 
 ## Gulp
 

@@ -1,120 +1,106 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
-var chalk = require('chalk');
+var path = require('path'),
+  helpers = require('yeoman-generator').test,
+  assert = require('yeoman-generator').assert;
 
-
-var JadestylGenerator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json');
-
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
-  },
-
-  askFor: function () {
-    var done = this.async();
-
-    // Have Yeoman greet the user.
-    this.log(yosay('Welcome to the marvelous Jadestyl generator!'));
-
-    var prompts = [{
-      name: 'title',
-      message: 'What is the title of your application?',
-      default: this.appname
-    },{
-      type: 'confirm',
-      name: 'jQuery',
-      message: 'Would you like jQuery ?',
-      default: true
-    },{
-      type: 'confirm',
-      name: 'imgProgress',
-      message: 'Would you like add a progressbar according with the number of image in the page ?',
-      default: false
-    },{
-      type: 'confirm',
-      name: 'animateCss',
-      message: 'Would you like Animate.css ?',
-      default: true
-    },{
-      type: 'confirm',
-      name: 'velocity',
-      message: 'Would you like Velocity JS ?',
-      default: false
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.title = props.title;
-      this.animateCss = props.animateCss;
-      this.jQuery = props.jQuery;
-      this.imgProgress = props.imgProgress;
-      this.velocity = props.velocity;
-      this.htmlmin = props.htmlmin;
-
-      done();
-
-      var extractGeneratorName = function (_, appname) {
-        var slugged = _.slugify(title);
-        var match = slugged.match(/^$/);
-
-        if (match && match.length === 2) {
-          return match[1].toLowerCase();
-      }
-
-      return slugged;
-      };
-        }.bind(this));
-      },
-
-     bower: function () {
-        var bower = {
-          name: this._.slugify(this.title + '-jadestyl'),
-          private: true,
-          dependencies: {}
-        };
-
-        if (this.jQuery) {
-         bower.dependencies.jquery = '1.11.0'
-        }
-
-        if (this.animateCss) {
-          var ani = 'animate.css'
-          bower.dependencies[ani] = '~3.1.1';
-        }
-
-         if (this.imgProgress) {
-          bower.dependencies.imgprogress = 'https://github.com/cedced19/imgprogress.git';
-        }
-
-        if (this.velocity) {
-          bower.dependencies.velocity = 'https://github.com/julianshapiro/velocity.git';
-        }
-
-        this.write('bower.json', JSON.stringify(bower, null, 2));
-      },
-
-
-    app: function () {
-      this.mkdir('src');
-      this.mkdir('src/scripts');
-      this.mkdir('src/styles');
-
-      this.template('src/index.jade', 'src/index.jade');
-      this.template('src/scripts/main.js', 'src/scripts/main.js');
-      this.template('src/styles/main.styl', 'src/styles/main.styl');
-      this.copy('_package.json', 'package.json');
-      this.copy('gitignore', '.gitignore');
-      this.copy('bowerrc', '.bowerrc');
-      this.template('gulpfile.js', 'gulpfile.js');
-      this.template('README.md', 'README.md');
-    }
+describe('Jadestyl generator', function () {
+  // not testing the actual run of generators yet
+  it('the generator can be required without throwing', function () {
+    this.app = require('../app');
   });
 
+  describe('run test', function () {
 
-module.exports = JadestylGenerator;
+    var expectedContent = [
+      ['.bowerrc', /"directory": "bower_components"/],
+      ['package.json', /"version": "0.0.0"/]
+    ];
+    var expected = [
+      '.bowerrc',
+      '.gitignore',
+      'gulpfile.js',
+      'package.json',
+      'bower.json',
+      'README.md',
+      'src/index.jade',
+      'src/scripts/main.js',
+      'src/styles/main.styl'
+    ];
+
+    var options = {
+      'skip-install-message': true,
+      'skip-install': true,
+      'skip-welcome-message': true,
+      'skip-message': true
+    };
+
+    var runGen;
+
+    beforeEach(function () {
+      runGen = helpers
+        .run(path.join(__dirname, '../app'))
+        .inDir(path.join(__dirname, '.tmp'))
+        .withGenerators([[helpers.createDummyGenerator(), 'mocha:app']]);
+    });
+
+     it('creates expected files', function (done) {
+      runGen.withOptions(options).on('end', function () {
+
+        assert.file(expected);
+        assert.fileContent([].concat(
+          expectedContent,
+          [
+            ['src/index.jade', /.animated/],
+            ['src/scripts/main.js', /jquery/]
+          ]
+        ));
+        assert.noFileContent([
+          ['src/scripts/main.js', /velocity/],
+          ['src/scripts/main.js', /imgprogress/],
+          ['src/styles/main.styl', /imgprogress/]
+        ]);
+        done();
+      });
+    });
+
+    it('creates ImgProgress expected files', function (done) {
+      runGen.withOptions(options).withPrompt({imgProgress: true, jquery: false, animateCss:false}).on('end', function () {
+
+        assert.file(expected);
+        assert.fileContent([].concat(
+          expectedContent,
+          [
+            ['src/scripts/main.js', /imgprogress/],
+            ['src/styles/main.styl', /imgprogress/],
+            ['src/scripts/main.js', /jquery/]
+          ]
+        ));
+        assert.noFileContent([
+          ['src/index.jade', /.animated/],
+          ['src/scripts/main.js', /velocity/]
+        ]);
+        done();
+      });
+    });
+
+    it('creates Velocity expected files', function (done) {
+      runGen.withOptions(options).withPrompt({velocity: true, jquery: false, animateCss:false}).on('end', function () {
+
+        assert.file(expected);
+        assert.fileContent([].concat(
+          expectedContent,
+          [
+            ['src/scripts/main.js', /velocity/],
+            ['src/scripts/main.js', /jquery/]
+          ]
+        ));
+        assert.noFileContent([
+          ['src/index.jade', /.animated/],
+          ['src/scripts/main.js', /imgprogress/],
+          ['src/styles/main.styl', /imgprogress/]
+        ]);
+        done();
+      });
+    });
+  });
+});

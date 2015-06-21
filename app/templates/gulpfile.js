@@ -98,7 +98,7 @@ gulp.task('connect', ['build'], function (done) {
 
 gulp.task('watch', function () {
   gulp.watch('src/**/*.jade', ['html']);
-  gulp.watch('src/**/*.html', ['docs-html']);
+  gulp.watch('src/**/*.html', ['other-html']);
   gulp.watch('src/styles/**/*.styl', ['css']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch('src/scripts/**/*.js', ['js']);
