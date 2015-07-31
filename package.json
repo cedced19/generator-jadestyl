@@ -30,8 +30,7 @@
     "stylus",
     "minify",
     "css",
-    "generator",
-    "grunt"
+    "generator"
   ],
   "dependencies": {
     "yeoman-generator": "~0.18.4",
